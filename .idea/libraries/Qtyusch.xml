@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Qtyusch">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/FulloschQtyusch/Qtyusch.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
