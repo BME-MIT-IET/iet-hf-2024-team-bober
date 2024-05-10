@@ -1,3 +1,6 @@
+# Java
+*.jar
+
 # Intellij
 .idea/
 *.iml
@@ -5,9 +8,14 @@
 
 out/
 
-FulloschQtyusch/FulloschQtyusch.iml
-MapGenerator/MapGenerator.iml
+FulloschQtyusch/out/
+MapGenerator/out/
  
 # Maven
 log/
+FulloschQtyusch/log/
+MapGenerator/log/
+
 target/
+FulloschQtyusch/target/
+MapGenerator/target/
