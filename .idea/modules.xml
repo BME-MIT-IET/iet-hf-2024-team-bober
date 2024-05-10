@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FulloschQtyusch/FulloschQtyusch.iml" filepath="$PROJECT_DIR$/FulloschQtyusch/FulloschQtyusch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MapGenerator/MapGenerator.iml" filepath="$PROJECT_DIR$/MapGenerator/MapGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/iet-hf-2024-team-bober.iml" filepath="$PROJECT_DIR$/.idea/iet-hf-2024-team-bober.iml" />
+    </modules>
+  </component>
+</project>
