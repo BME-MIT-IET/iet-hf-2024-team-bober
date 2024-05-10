@@ -1,100 +1,100 @@
 Field
 Type Laboratory
 Param ForgetCode
-Name L1
+Name Laboratory1
 end
 Field
 Type Shelter
 Param Glove
-Name S1
+Name Shelter1
 end
 Field
 Type Shelter
 Param Bag
-Name S2
+Name Shelter2
 end
 Field
 Type Warehouse
-Name W1
+Name Warehouse1
 end
 Field
 Type Warehouse
-Name W2
+Name Warehouse2
 end
 Field
 Type Laboratory
 Param StunCode
-Name L2
+Name Laboratory2
 end
 Field
 Type Warehouse
-Name W3
+Name Warehouse3
 end
 Field
 Type Field
-Name F8
+Name Field8
 Equipment Cloak
 end
 Field
 Type Warehouse
-Name W4
+Name Warehouse4
 end
 Field
 Type InfectedLaboratory
 Param ForgetCode
-Name IL1
+Name InfectedLaboratory1
 end
 Neighbours
-S1 L1
-S2 L1
-W1 L1
-W2 W1
-L2 L1
-W3 L2
-F8 L1
-W4 L1
-IL1 S2
-L1 F8
-L1 W4
-S1 L2
-S1 IL1
-S2 W3
-W1 S1
-W1 S2
-W1 W2
-W2 L1
-W2 S2
-W2 L2
-L2 S1
-L2 S2
-W3 S1
-W3 S2
-W3 W1
-W3 L2
-W3 W4
-W3 IL1
-F8 S1
-W4 L1
-W4 L2
-IL1 L1
-IL1 S1
-IL1 W1
-IL1 W3
+Shelter1 Laboratory1
+Shelter2 Laboratory1
+Warehouse1 Laboratory1
+Warehouse2 Warehouse1
+Laboratory2 Laboratory1
+Warehouse3 Laboratory2
+Field8 Laboratory1
+Warehouse4 Laboratory1
+InfectedLaboratory1 Shelter2
+Laboratory1 Field8
+Laboratory1 Warehouse4
+Shelter1 Laboratory2
+Shelter1 InfectedLaboratory1
+Shelter2 Warehouse3
+Warehouse1 Shelter1
+Warehouse1 Shelter2
+Warehouse1 Warehouse2
+Warehouse2 Laboratory1
+Warehouse2 Shelter2
+Warehouse2 Laboratory2
+Laboratory2 Shelter1
+Laboratory2 Shelter2
+Warehouse3 Shelter1
+Warehouse3 Shelter2
+Warehouse3 Warehouse4
+Warehouse3 Laboratory2
+Warehouse3 Warehouse4
+Warehouse3 InfectedLaboratory1
+Field8 Shelter1
+Warehouse4 Laboratory1
+Warehouse4 Laboratory2
+InfectedLaboratory1 Laboratory1
+InfectedLaboratory1 Shelter1
+InfectedLaboratory1 Warehouse1
+InfectedLaboratory1 Warehouse3
 end
 Virologist
-Name V1
+Name Virologist1
 ActionCount 2
 Equipment Axe
 Amino 19
 Nucleo 13
 GeneticCode ChoreaCode
-StartingPos S1
+StartingPos Shelter1
 end
 Virologist
-Name V1
+Name Virologist2
 ActionCount 1
 Equipment Glove
 Amino 6
 Nucleo 17
-StartingPos S1
+StartingPos Shelter1
 end
