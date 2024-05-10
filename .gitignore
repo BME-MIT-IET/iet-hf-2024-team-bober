@@ -4,6 +4,9 @@
 *.iws
 
 out/
+
+FulloschQtyusch/FulloschQtyusch.iml
+MapGenerator/MapGenerator.iml
  
 # Maven
 log/
