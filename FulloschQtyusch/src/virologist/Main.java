@@ -12,8 +12,8 @@ public class Main {
      */
     public static void main(String[] args){
         String mapPath = "/home/adrian/sc/felev-6/IET/hazi/iet-hf-2024-team-bober/FulloschQtyusch/maps/map1.txt";
-        //if (args.length > 0)
-        //    mapPath = args[0];
+        if (args.length > 0)
+            mapPath = args[0];
         try {
             Loader loader = new Loader();
             Controller controller = new Controller(loader.loadGame(mapPath));
