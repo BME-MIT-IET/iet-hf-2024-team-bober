@@ -23,6 +23,12 @@ public class ChoreaCode extends GeneticCode
 		turnsLeft = 1;
 	}
 
+	public ChoreaCode(int aminoAcidPrice, int nucleotidePrice, int turnsLeft) {
+		this.aminoAcidPrice = aminoAcidPrice;
+		this.nucleotidePrice = nucleotidePrice;
+		this.turnsLeft = turnsLeft;
+	}
+
 	/**
 	 * Létrehoz egy vitustánc (Chorea) ágenst.
 	 * @param v a virológus, aki szeretne ágenst készíteni

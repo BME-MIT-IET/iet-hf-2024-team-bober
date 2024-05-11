@@ -23,6 +23,12 @@ public class BlockCode extends GeneticCode
 		turnsLeft = 2;
 	}
 
+	public BlockCode(int aminoAcidPrice, int nucleotidePrice, int turnsLeft) {
+		this.aminoAcidPrice = aminoAcidPrice;
+		this.nucleotidePrice = nucleotidePrice;
+		this.turnsLeft = turnsLeft;
+	}
+
 	/**
 	 * Létrehoz egy Block Agent-t (ágens), és visszatér vele.
 	 * Ha nem hozható létre az Agent, mert nincs hozzá elég anyag a paraméterül kapott virológusnak,

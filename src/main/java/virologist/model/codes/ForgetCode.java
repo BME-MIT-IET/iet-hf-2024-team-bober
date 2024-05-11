@@ -16,10 +16,16 @@ public class ForgetCode extends GeneticCode
 	/**
 	 * Konstruktor, mely beállítja a létrehozhatóü felejtő ágens költségeit és időtartamát.
 	 */
-	public ForgetCode(){
-		turnsLeft = 1;
+	public ForgetCode() {
 		aminoAcidPrice = 6;
 		nucleotidePrice = 6;
+		turnsLeft = 1;
+	}
+
+	public ForgetCode(int aminoAcidPrice, int nucleotidePrice, int turnsLeft) {
+		this.aminoAcidPrice = aminoAcidPrice;
+		this.nucleotidePrice = nucleotidePrice;
+		this.turnsLeft = turnsLeft;
 	}
 
 	/**
