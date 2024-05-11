@@ -1,10 +1,9 @@
-package virologist;
+package virologist.model.equipments;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import virologist.model.Virologist;
-import virologist.model.equipments.Axe;
 import static org.mockito.Mockito.*;
 
 class AxeTest {
