@@ -21,6 +21,10 @@ public class Bag extends Equipment
 		delta = 5;
 	}
 
+	public Bag(int delta) {
+		this.delta = delta;
+	}
+
 	/**
 	 * Növelia a maximális nukleotid és aminosav tárhelyet
 	 * @param v viselő virológus

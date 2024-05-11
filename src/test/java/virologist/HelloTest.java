@@ -6,21 +6,21 @@ import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.*;
 
-public class HelloTest {
-    String text;
+class HelloTest {
 
     @BeforeEach
     public void init() {
-        text = "Hello!";
+                
     }
 
     @Test
-    public void hello_firstTest() {
+    void hello_firstTest() {
         // Arrange
 
         // Act
+        boolean result = true;
 
         // Assert
-        assertEquals(text, text);
+        assertEquals(true, result);
     }
 }

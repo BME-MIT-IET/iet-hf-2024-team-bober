@@ -15,7 +15,15 @@ public class Glove extends Equipment implements IInjectedStr
 	/**
 	 * Használtsági szint
 	 */
-	private int useCount = 3;
+	private int useCount;
+
+	public Glove() {
+		useCount = 3;
+	}
+
+	public Glove(int useCount) {
+		this.useCount = useCount;
+	}
 
 	/**
 	 * Alkalmazza az ágensek felől érinthetetlen stratégiát
