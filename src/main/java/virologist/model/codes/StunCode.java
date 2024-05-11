@@ -22,6 +22,12 @@ public class StunCode extends GeneticCode
 			turnsLeft = 1;
 	}
 
+	public StunCode(int aminoAcidPrice, int nucleotidePrice, int turnsLeft) {
+		this.aminoAcidPrice = aminoAcidPrice;
+		this.nucleotidePrice = nucleotidePrice;
+		this.turnsLeft = turnsLeft;
+	}
+
 	/**
 	 * Létrehoz egy bénító (Stun) ágenst.
 	 * @param v a virológus, aki szeretne ágenst készíteni
