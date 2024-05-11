@@ -1,0 +1,1 @@
+java -jar target/virologist-0.5.0-SNAPSHOT.jar
