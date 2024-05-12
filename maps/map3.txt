@@ -1,120 +1,120 @@
 Field
 Type Field
-Name F1
+Name Field1
 Equipment Axe
 end
 Field
 Type Field
-Name F2
+Name Field2
 Equipment Glove
 end
 Field
 Type Field
-Name F3
+Name Field3
 Equipment Cloak
 end
 Field
 Type Field
-Name F4
+Name Field4
 Equipment Bag
 end
 Field
 Type Field
-Name F5
+Name Field5
 end
 Field
 Type Warehouse
-Name W1
+Name Warehouse1
 end
 Field
 Type Warehouse
-Name W2
+Name Warehouse2
 end
 Field
 Type Warehouse
-Name W3
+Name Warehouse3
 end
 Field
 Type InfectedLaboratory
 Param BlockCode
-Name IL1
+Name InfectedLaboratory1
 end
 Field
 Type InfectedLaboratory
 Param ForgetCode
-Name IL2
+Name InfectedLaboratory2
 end
 Field
 Type InfectedLaboratory
 Param ChoreaCode
-Name IL3
+Name InfectedLaboratory3
 end
 Field
 Type InfectedLaboratory
 Param StunCode
-Name IL4
+Name InfectedLaboratory4
 end
 Field
 Type Laboratory
 Param ForgetCode
-Name L1
+Name Laboratory1
 end
 Field
 Type Laboratory
 Param ChoreaCode
-Name L2
+Name Laboratory2
 end
 Field
 Type Laboratory
 Param StunCode 
-Name L3
+Name Laboratory3
 end
 Field
 Type Laboratory
 Param BlockCode
-Name L4
+Name Laboratory4
 end
 Field
 Type Shelter
 Param Cloak
-Name S1
+Name Shelter1
 end
 Field
 Type Shelter
 Param Glove
-Name S2
+Name Shelter2
 end
 Field
 Type Shelter
 Param Bag
-Name S3
+Name Shelter3
 end
 Field
 Type Shelter
 Param Axe
-Name S4
+Name Shelter4
 end
 Neighbours
-F1 F2
-F2 F3
-F3 F4
-F4 F5
-F5 L1
-L1 L2
-L2 L3
-L3 L4
-L4 W1
-W1 W2
-W2 W3
-W3 IL1
-IL1 IL2
-IL2 IL3
-IL3 IL4
-IL4 S1
-S1 S2
-S2 S3
-S3 S4
-S4 F1
+Field1 Field2
+Field2 Field3
+Field3 Field4
+Field4 Field5
+Field5 Laboratory1
+Laboratory1 Laboratory2
+Laboratory2 Laboratory3
+Laboratory3 Laboratory4
+Laboratory4 Warehouse1
+Warehouse1 Warehouse2
+Warehouse2 Warehouse3
+Warehouse3 InfectedLaboratory1
+InfectedLaboratory1 InfectedLaboratory2
+InfectedLaboratory2 InfectedLaboratory3
+InfectedLaboratory3 InfectedLaboratory4
+InfectedLaboratory4 Shelter1
+Shelter1 Shelter2
+Shelter2 Shelter3
+Shelter3 Shelter4
+Shelter4 Field1
 end
 Virologist
 Name Bob
@@ -123,7 +123,7 @@ Equipment Bag
 Amino 20
 Nucleo 20
 GeneticCode ChoreaCode
-StartingPos F1
+StartingPos Field1
 end
 Virologist
 Name Alice
@@ -131,7 +131,7 @@ ActionCount 3
 Amino 20
 Nucleo 20
 GeneticCode ForgetCode
-StartingPos F2
+StartingPos Field2
 end
 Virologist
 Name Joe
@@ -140,6 +140,6 @@ Equipment Axe
 Amino 20
 Nucleo 20
 GeneticCode StunCode 
-StartingPos F3
+StartingPos Field3
 end
 
