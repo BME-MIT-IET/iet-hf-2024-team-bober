@@ -1,8 +1,6 @@
 package virologist.model.equipments;
 
 
-import java.util.function.DoubleSupplier;
-
 import virologist.model.Virologist;
 import virologist.model.strategy.NoInjected;
 
