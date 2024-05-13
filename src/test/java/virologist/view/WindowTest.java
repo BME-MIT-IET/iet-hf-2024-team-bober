@@ -13,24 +13,24 @@ import javax.swing.*;
 
 public class WindowTest {
 
-    private Loader loader;
-    private Controller controller;
+    private static Loader loader;
+    private static Controller controller;
     
-    private Window window;
+    private static Window window;
 
-    private Robot robot;
+    private static Robot robot;
 
     @BeforeAll
-    public void createEnvironment(){
+    public static void createEnvironment(){
         try{
             loader = new Loader();
-            controller = new Controller(loader.loadGame("maps/map1.txt"));
-            window = new Window(controller, Game.Create());
+            controller = new Controller(loader.loadGame("maps/map3.txt"));
+            window = controller.getWindow();
             window.getFrame().setLocation(0, 0);
             robot = new Robot();
         }
         catch (Exception e){
-
+            System.err.println("Nem létező pálya!");
         }
     }
 
@@ -38,7 +38,6 @@ public class WindowTest {
     public void playerActionsCollectedTest(){
         JFrame frame = window.getFrame();
         
-
         String[] expectedStrings = {
             "attack",
             "move",
