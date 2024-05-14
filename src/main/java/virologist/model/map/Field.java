@@ -55,6 +55,12 @@ public class Field
 		equipments = new ArrayList<>();
 	}
 
+	public Field(ArrayList<Field> neighbours, ArrayList<Virologist> virologists, ArrayList<Equipment> equipments) {
+		this.neighbours = neighbours;
+		this.virologists = virologists;
+		this.equipments = equipments;
+	}
+
 	/**
 	 * Megadja a körülötte lévő mezőket
 	 * @return szomszéd mezők
