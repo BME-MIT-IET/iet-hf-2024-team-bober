@@ -3,6 +3,8 @@ package virologist.view;
 import virologist.control.*;
 import virologist.model.Game;
 import virologist.model.Virologist;
+import virologist.model.equipments.Axe;
+import virologist.model.equipments.Equipment;
 
 import org.junit.jupiter.api.*;
 import org.mockito.internal.matchers.Or;
@@ -78,82 +80,21 @@ public class WindowTest {
 
     @Test @Order (1)
     public void moveTest(){
-        robot.delay(1000);
+        robot.delay(100);
         robot.mouseMove(20, 40);
-        robot.delay(2000);
+        robot.delay(200);
         robot.mousePress(leftClick);
         robot.mouseRelease(leftClick);
         robot.mouseMove(20, 90);
-        robot.delay(2000);
+        robot.delay(200);
         robot.mouseMove(200, 90);
         robot.mousePress(leftClick);
         robot.mouseRelease(leftClick);
-        robot.delay(2000);
+        robot.delay(200);
         assertEquals("Field2", Game.Create().GetCurrentPlayer().getField().getName());
     }
 
     @Test @Order (2)
-    public void attackTest(){
-        int numPlayers = Game.Create().getVirologists().size();
-        robot.delay(1000);
-        robot.mouseMove(20, 40);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
-        robot.delay(1000);
-        robot.mouseMove(20, 60);
-        robot.delay(200);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
-        robot.delay(1000);
-        robot.mouseMove(170, 60);
-        robot.delay(1000);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
-        robot.delay(1000);
-        assertTrue(Game.Create().getVirologists().size() < numPlayers);
-    }
-
-    @Test @Order (3)
-    public void dropTest(){
-
-    }
-
-    @Test @Order (4)
-    public void lootAminoFromTest(){
-
-    }
-
-    @Test @Order (5)
-    public void lootNucleoFromTest(){
-
-    }
-
-    @Test @Order (6)
-    public void lootEquipmentFromTest(){
-        
-    }
-
-    @Test @Order (7)
-    public void collectTest(){
-
-    }
-
-    @Test @Order (8)
-    public void learnTest(){
-
-    }
-
-    @Test @Order (9)
-    public void equipTest(){
-
-    }
-
-    @Test @Order (10)
-    public void injectTest(){
-
-    }
-
-    @Test @Order (11)
     public void endTurnTest(){
         Virologist player1 = Game.Create().GetCurrentPlayer();
         robot.delay(100);
@@ -168,5 +109,101 @@ public class WindowTest {
         robot.mouseRelease(leftClick);
         robot.delay(100);
         assertNotEquals(player1, Game.Create().GetCurrentPlayer());
+        robot.mouseMove(350, 350);
+        robot.mousePress(leftClick);
+        robot.mouseRelease(leftClick);
+        robot.delay(200);
     }
+
+    @Test @Order (3)
+    public void dropTest(){
+        robot.mouseMove(20, 40);
+        robot.mousePress(leftClick);
+        robot.mouseRelease(leftClick);
+        robot.delay(200);
+        robot.mouseMove(20, 100);
+        robot.mousePress(leftClick);
+        robot.mouseRelease(leftClick);
+        robot.delay(200);
+        assertEquals(0, Game.Create().GetCurrentPlayer().GetEquipments().size());
+        robot.delay(100);
+        robot.mouseMove(20, 40);
+        robot.delay(100);
+        robot.mousePress(leftClick);
+        robot.mouseRelease(leftClick);
+        robot.delay(100);
+        robot.mouseMove(20, 270);
+        robot.delay(100);
+        robot.mousePress(leftClick);
+        robot.mouseRelease(leftClick);
+        robot.delay(100);
+    }
+
+    @Test @Order (4)
+    public void equipTest(){
+        int numEquipment = Game.Create().GetCurrentPlayer().GetEquipments().size();
+        robot.mouseMove(20, 40);
+        robot.mousePress(leftClick);
+        robot.mouseRelease(leftClick);
+        robot.delay(200);
+        robot.mouseMove(20, 230);
+        robot.mousePress(leftClick);
+        robot.mouseRelease(leftClick);
+        robot.delay(200);
+        assertTrue(Game.Create().GetCurrentPlayer().GetEquipments().size() > numEquipment);
+    }
+
+    @Test @Order (5)
+    public void attackTest(){
+        int numPlayers = Game.Create().getVirologists().size();
+        robot.delay(100);
+        robot.mouseMove(20, 40);
+        robot.mousePress(leftClick);
+        robot.mouseRelease(leftClick);
+        robot.delay(100);
+        robot.mouseMove(20, 60);
+        robot.delay(200);
+        robot.mousePress(leftClick);
+        robot.mouseRelease(leftClick);
+        robot.delay(100);
+        robot.mouseMove(170, 60);
+        robot.delay(100);
+        robot.mousePress(leftClick);
+        robot.mouseRelease(leftClick);
+        robot.delay(100);
+        assertTrue(Game.Create().getVirologists().size() < numPlayers);
+    }
+
+    
+
+    @Test @Order (6)
+    public void lootAminoFromTest(){
+
+    }
+
+    @Test @Order (7)
+    public void lootNucleoFromTest(){
+
+    }
+
+    @Test @Order (8)
+    public void lootEquipmentFromTest(){
+        
+    }
+
+    @Test @Order (9)
+    public void collectTest(){
+
+    }
+
+    @Test @Order (10)
+    public void learnTest(){
+
+    }
+
+    @Test @Order (11)
+    public void injectTest(){
+
+    }
+
 }
