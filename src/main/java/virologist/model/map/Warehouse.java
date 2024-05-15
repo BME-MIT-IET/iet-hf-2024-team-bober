@@ -13,7 +13,30 @@ public class Warehouse extends Field
 	/**
 	 * Ennyivel növeli a virológusok anyagát
 	 */
-	private int delta = 5;
+	private int delta;
+	private int fixRandom;
+	private boolean fixRandomUsed;
+
+	public Warehouse() {
+		delta = 5;
+		fixRandom = 0;
+		fixRandomUsed = false;
+	}
+
+	public Warehouse(int delta, int fixRandom) {
+		this.delta = delta;
+		this.fixRandom = fixRandom;
+		fixRandomUsed = true;
+	}
+
+	private int getRandom() {
+		if (fixRandomUsed) {
+			return fixRandom;
+		} else {
+			Random random = new Random();
+			return random.nextInt(2);
+		}
+	}
 
 	/**
 	 * Anyag gyüjtése
@@ -22,8 +45,7 @@ public class Warehouse extends Field
 	 * @param v gyüjtő virológus
 	 */
 	public void CollectMaterial(Virologist v) {
-		Random random = new Random();
-		int r = random.nextInt(2) ;
+		int r = getRandom();
 		if (r == 0) {
 			v.AddAminoAcid(delta);
 		}
