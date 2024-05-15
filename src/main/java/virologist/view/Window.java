@@ -30,6 +30,7 @@ public class Window extends Observer{
     private JLabel aminoLabel;
     private JLabel nucleoLabel;
     private JLabel turnCounter;
+    private JLabel fieldLabel;
     /**
      * Az üzenetbuborék
      */
@@ -181,6 +182,9 @@ public class Window extends Observer{
     //AKCIÓSZÁMLÁLÓ FRISSÍTÉSE
         turnCounter.setText(player.getActionCount() + " / 3");
 
+    //MEZŐKIÍRÁS FRISSÍTÉSE
+        fieldLabel.setText("" + player.getField().getName());
+
     //ÁLLAPOTSÁVOK FRISSÍTÉSE
         nucleoBar.setValue(player.GetNucleotide());
         nucleoBar.setMaximum(player.GetMaterialLimit());
@@ -307,6 +311,13 @@ public class Window extends Observer{
         turnCounter.setForeground(Color.white);
         turnCounter.setBounds(480, 25, 160, 50);
 
+    //MEZŐKIÍRÓ BEÁLLÍTÁSA
+        fieldLabel = new JLabel("");
+        fieldLabel.setFont(new Font("sans-serif", Font.BOLD, 20));
+        fieldLabel.setForeground(Color.white);
+        fieldLabel.setBounds(10, 25, 250, 50);
+
+
     //SZÖVEGBUBORÉK BEÁKKÍTÁSA
         Image actionBubbleIMG;
         ImageIcon actionBubbleIcon;
@@ -431,6 +442,7 @@ public class Window extends Observer{
         layeredPane.add(equipmentButtons.get(1), Integer.valueOf(1));
         layeredPane.add(equipmentButtons.get(2), Integer.valueOf(1));
         layeredPane.add(turnCounter, Integer.valueOf(1));
+        layeredPane.add(fieldLabel, Integer.valueOf(1));
         layeredPane.add(actionBubbleText, Integer.valueOf(2));
         layeredPane.add(nucleoLabel, Integer.valueOf(2));
         layeredPane.add(aminoLabel, Integer.valueOf(2));
