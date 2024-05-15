@@ -653,7 +653,7 @@ public class Virologist extends Subject
 	 */
 	public void Reset()
 	{
-		lootedStr = new DefLooted();
+		lootedStr = new Looted();
 		injectedStr = new DefInjected();
 		collectStr = new DefCollect();
 		equipStr = new DefEquip();
