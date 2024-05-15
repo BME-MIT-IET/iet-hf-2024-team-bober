@@ -3,11 +3,14 @@ package virologist.view;
 import virologist.control.*;
 import virologist.model.Game;
 import virologist.model.Virologist;
+import virologist.model.codes.BlockCode;
 import virologist.model.equipments.Axe;
 import virologist.model.equipments.Equipment;
+import virologist.model.map.*;
 
 import org.junit.jupiter.api.*;
 import org.mockito.internal.matchers.Or;
+import org.mockito.internal.util.reflection.GenericMaster;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -15,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.Robot;
 import java.awt.event.InputEvent;
-
 import javax.swing.*;
 
 @TestMethodOrder (MethodOrderer.OrderAnnotation.class)
@@ -81,15 +83,10 @@ public class WindowTest {
     @Test @Order (1)
     public void moveTest(){
         robot.delay(100);
-        robot.mouseMove(20, 40);
-        robot.delay(200);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
+        clickAt(20, 40);
         robot.mouseMove(20, 90);
         robot.delay(200);
-        robot.mouseMove(200, 90);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
+        clickAt(200, 90);
         robot.delay(200);
         assertEquals("Field2", Game.Create().GetCurrentPlayer().getField().getName());
     }
@@ -98,57 +95,34 @@ public class WindowTest {
     public void endTurnTest(){
         Virologist player1 = Game.Create().GetCurrentPlayer();
         robot.delay(100);
-        robot.mouseMove(20, 40);
+        clickAt(20, 40);
         robot.delay(100);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
-        robot.delay(100);
-        robot.mouseMove(20, 270);
-        robot.delay(100);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
+        clickAt(20, 270);
         robot.delay(100);
         assertNotEquals(player1, Game.Create().GetCurrentPlayer());
-        robot.mouseMove(350, 350);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
         robot.delay(200);
     }
 
     @Test @Order (3)
     public void dropTest(){
-        robot.mouseMove(20, 40);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
+        clickAt(20, 40);
         robot.delay(200);
-        robot.mouseMove(20, 100);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
+        clickAt(20, 100);
         robot.delay(200);
         assertEquals(0, Game.Create().GetCurrentPlayer().GetEquipments().size());
         robot.delay(100);
-        robot.mouseMove(20, 40);
+        clickAt(20, 40);
         robot.delay(100);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
-        robot.delay(100);
-        robot.mouseMove(20, 270);
-        robot.delay(100);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
+        clickAt(20, 270);
         robot.delay(100);
     }
 
     @Test @Order (4)
     public void equipTest(){
         int numEquipment = Game.Create().GetCurrentPlayer().GetEquipments().size();
-        robot.mouseMove(20, 40);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
+        clickAt(20, 40);
         robot.delay(200);
-        robot.mouseMove(20, 230);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
+        clickAt(20, 230);
         robot.delay(200);
         assertTrue(Game.Create().GetCurrentPlayer().GetEquipments().size() > numEquipment);
     }
@@ -157,53 +131,100 @@ public class WindowTest {
     public void attackTest(){
         int numPlayers = Game.Create().getVirologists().size();
         robot.delay(100);
-        robot.mouseMove(20, 40);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
+        clickAt(20, 40);
         robot.delay(100);
-        robot.mouseMove(20, 60);
-        robot.delay(200);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
+        clickAt(20, 60);
         robot.delay(100);
-        robot.mouseMove(170, 60);
-        robot.delay(100);
-        robot.mousePress(leftClick);
-        robot.mouseRelease(leftClick);
+        clickAt(170, 60);
         robot.delay(100);
         assertTrue(Game.Create().getVirologists().size() < numPlayers);
     }
 
-    
-
     @Test @Order (6)
-    public void lootAminoFromTest(){
-
+    public void endTurnTestBigButton(){
+        Virologist player1 = Game.Create().GetCurrentPlayer();
+        clickAt(530, 530);
+        robot.delay(200);
+        assertNotEquals(player1, Game.Create().GetCurrentPlayer());
     }
 
     @Test @Order (7)
+    public void lootAminoFromTest(){
+        
+    }
+
+    @Test @Order (8)
     public void lootNucleoFromTest(){
 
     }
 
-    @Test @Order (8)
+    @Test @Order (9)
     public void lootEquipmentFromTest(){
         
     }
 
-    @Test @Order (9)
-    public void collectTest(){
-
-    }
-
     @Test @Order (10)
-    public void learnTest(){
+    public void collectTest(){
+        Field warehouse = Game.Create().GetFields().get(0);
+        for (Field field : Game.Create().GetFields()) {
+            if(field instanceof Warehouse){
+                warehouse = field;
+                break;
+            }
+        }
 
+        Game.Create().GetCurrentPlayer().SetField(warehouse);
+        Game.Create().GetCurrentPlayer().IncreaseLimit(30);
+        Game.Create().GetCurrentPlayer().SetActionCount(3);
+        int amino = Game.Create().GetCurrentPlayer().GetAminoAcid();
+        int nucleo = Game.Create().GetCurrentPlayer().GetNucleotide();
+        clickAt(20, 40);
+        robot.delay(200);
+        clickAt(20, 200);
+        robot.delay(200);
+        assertTrue(Game.Create().GetCurrentPlayer().GetAminoAcid() > amino || Game.Create().GetCurrentPlayer().GetNucleotide() > nucleo);
     }
 
     @Test @Order (11)
-    public void injectTest(){
+    public void learnTest(){
+        Field lab = Game.Create().GetFields().get(0);
+        for (Field field : Game.Create().GetFields()) {
+            if(field instanceof Laboratory){
+                lab = field;
+                break;
+            }
+        }
 
+        lab.AddVirologist(Game.Create().GetCurrentPlayer());
+        Game.Create().GetCurrentPlayer().SetActionCount(3);
+        int codes = Game.Create().GetCurrentPlayer().getGeneticCodes().size();
+        clickAt(20, 40);
+        robot.delay(200);
+        clickAt(20, 210);
+        robot.delay(200);
+        assertTrue(Game.Create().GetCurrentPlayer().getGeneticCodes().size() > codes);
     }
 
+    @Test @Order (12)
+    public void injectTest(){
+        int amino = Game.Create().GetCurrentPlayer().GetAminoAcid();
+        int nucleo = Game.Create().GetCurrentPlayer().GetNucleotide();
+        Game.Create().GetCurrentPlayer().AddGeneticCode(new BlockCode(10, 10, 2));
+        clickAt(20, 40);
+        robot.delay(200);
+        clickAt(20, 250);
+        robot.delay(200);
+        clickAt(170, 250);
+        robot.delay(200);
+        clickAt(200, 250);
+        robot.delay(200);
+        assertTrue(amino > Game.Create().GetCurrentPlayer().GetAminoAcid() || nucleo > Game.Create().GetCurrentPlayer().GetNucleotide());
+    }
+
+    private void clickAt(int x, int y){
+        robot.mouseMove(x, y);
+        robot.delay(200);
+        robot.mousePress(leftClick);
+        robot.mouseRelease(leftClick);
+    }
 }
