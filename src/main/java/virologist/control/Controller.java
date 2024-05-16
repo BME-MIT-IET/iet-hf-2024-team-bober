@@ -37,7 +37,7 @@ public class Controller extends Subject {
      */
     public void attack(Virologist v){
         Virologist currentPlayer = game.GetCurrentPlayer();
-        actionMessage = v.getName() + " might be dead by now▄";
+        actionMessage = v.getName() + " might be dead by now...";
         currentPlayer.Attack(v);
         if(!currentPlayer.equals(game.GetCurrentPlayer())){
             currentPlayer.detach(window);
