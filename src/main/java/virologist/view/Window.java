@@ -449,4 +449,8 @@ public class Window extends Observer{
         frame.add(layeredPane);
     }
 
+    public JFrame getFrame(){
+        return frame;
+    }
+
 }

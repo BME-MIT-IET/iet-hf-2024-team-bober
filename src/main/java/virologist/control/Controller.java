@@ -168,5 +168,9 @@ public class Controller extends Subject {
     public String getActionMessage(){
         return actionMessage;
     }
+
+    public Window getWindow(){
+        return window;
+    }
 }
 
