@@ -32,6 +32,8 @@ public class WindowTest {
 
     private static Robot robot;
 
+    private static final int ROBOT_DELAY = 200;
+
     @BeforeAll
     public static void createEnvironment(){
         try{
@@ -47,96 +49,63 @@ public class WindowTest {
         }
     }
 
-    //TODO: Ez valamiért nem működik, nem kapja meg jól az ablakhoz tartozó MenuBar-t
-    /*@Test
-    public void playerActionsCollectedTest() {
-        JFrame frame = window.getFrame();
-
-        String[] expectedStrings = {
-                "attack",
-                "move",
-                "drop",
-                "lootAminoFrom",
-                "lootNucleoFrom",
-                "lootEquipmentFrom",
-                "collect",
-                "learn",
-                "equip",
-                "inject",
-                "endTurn"
-        };
-
-        int[] expectedSubMenuCounts = {
-                1, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0
-        };
-
-        int menusCount = frame.getJMenuBar().getMenuCount();
-        assertEquals(expectedStrings.length, menusCount);
-        for (int i = 0; i < menusCount; i++) {
-            JMenu menu = frame.getJMenuBar().getMenu(i);
-            assertEquals(expectedStrings[i], menu.getText());
-            int menuItemCount = menu.getItemCount();
-            assertEquals(expectedSubMenuCounts[i], menuItemCount);
-        }
-    }*/
-
     @Test @Order (1)
     public void moveTest(){
-        robot.delay(100);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 40);
         robot.mouseMove(20, 90);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         clickAt(200, 90);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         assertEquals("Field2", Game.Create().GetCurrentPlayer().getField().getName());
     }
 
     @Test @Order (2)
     public void endTurnTest(){
         Virologist player1 = Game.Create().GetCurrentPlayer();
-        robot.delay(100);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 40);
-        robot.delay(100);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 270);
-        robot.delay(100);
+        robot.delay(ROBOT_DELAY);
         assertNotEquals(player1, Game.Create().GetCurrentPlayer());
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
     }
 
     @Test @Order (3)
     public void dropTest(){
         clickAt(20, 40);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 100);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         assertEquals(0, Game.Create().GetCurrentPlayer().GetEquipments().size());
-        robot.delay(100);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 40);
-        robot.delay(100);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 270);
-        robot.delay(100);
+        robot.delay(ROBOT_DELAY);
     }
 
     @Test @Order (4)
     public void equipTest(){
         int numEquipment = Game.Create().GetCurrentPlayer().GetEquipments().size();
         clickAt(20, 40);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 230);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         assertTrue(Game.Create().GetCurrentPlayer().GetEquipments().size() > numEquipment);
     }
 
     @Test @Order (5)
     public void attackTest(){
         int numPlayers = Game.Create().getVirologists().size();
-        robot.delay(100);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 40);
-        robot.delay(100);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 60);
-        robot.delay(100);
+        robot.delay(ROBOT_DELAY);
         clickAt(170, 60);
-        robot.delay(100);
+        robot.delay(ROBOT_DELAY);
         assertTrue(Game.Create().getVirologists().size() < numPlayers);
     }
 
@@ -144,23 +113,45 @@ public class WindowTest {
     public void endTurnTestBigButton(){
         Virologist player1 = Game.Create().GetCurrentPlayer();
         clickAt(530, 530);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         assertNotEquals(player1, Game.Create().GetCurrentPlayer());
     }
 
     @Test @Order (7)
     public void lootAminoFromTest(){
-        
+        int amino = Game.Create().GetCurrentPlayer().GetAminoAcid();
+        Game.Create().GetCurrentPlayer().IncreaseLimit(20);
+        Game.Create().GetCurrentPlayer().SetActionCount(3);
+        clickAt(20, 40);
+        robot.delay(ROBOT_DELAY);
+        clickAt(20, 120);
+        robot.delay(ROBOT_DELAY);
+        clickAt(170, 120);
+        assertTrue(Game.Create().GetCurrentPlayer().GetAminoAcid() > amino);
     }
 
     @Test @Order (8)
     public void lootNucleoFromTest(){
-
+        int nucleo = Game.Create().GetCurrentPlayer().GetNucleotide();
+        clickAt(20, 40);
+        robot.delay(ROBOT_DELAY);
+        clickAt(20, 150);
+        robot.delay(ROBOT_DELAY);
+        clickAt(170, 150);
+        robot.delay(ROBOT_DELAY);
+        assertTrue(Game.Create().GetCurrentPlayer().GetAminoAcid() > nucleo);
     }
 
     @Test @Order (9)
     public void lootEquipmentFromTest(){
-        
+        int numEquipment = Game.Create().GetCurrentPlayer().GetEquipments().size();
+        clickAt(20, 40);
+        robot.delay(ROBOT_DELAY);
+        clickAt(20, 180);
+        robot.delay(ROBOT_DELAY);
+        clickAt(170, 180);
+        robot.delay(ROBOT_DELAY);
+        assertTrue(Game.Create().GetCurrentPlayer().GetEquipments().size() > numEquipment);
     }
 
     @Test @Order (10)
@@ -173,15 +164,15 @@ public class WindowTest {
             }
         }
 
-        Game.Create().GetCurrentPlayer().SetField(warehouse);
+        warehouse.AddVirologist(Game.Create().GetCurrentPlayer());
         Game.Create().GetCurrentPlayer().IncreaseLimit(30);
         Game.Create().GetCurrentPlayer().SetActionCount(3);
         int amino = Game.Create().GetCurrentPlayer().GetAminoAcid();
         int nucleo = Game.Create().GetCurrentPlayer().GetNucleotide();
         clickAt(20, 40);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 200);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         assertTrue(Game.Create().GetCurrentPlayer().GetAminoAcid() > amino || Game.Create().GetCurrentPlayer().GetNucleotide() > nucleo);
     }
 
@@ -199,9 +190,9 @@ public class WindowTest {
         Game.Create().GetCurrentPlayer().SetActionCount(3);
         int codes = Game.Create().GetCurrentPlayer().getGeneticCodes().size();
         clickAt(20, 40);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 210);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         assertTrue(Game.Create().GetCurrentPlayer().getGeneticCodes().size() > codes);
     }
 
@@ -211,19 +202,19 @@ public class WindowTest {
         int nucleo = Game.Create().GetCurrentPlayer().GetNucleotide();
         Game.Create().GetCurrentPlayer().AddGeneticCode(new BlockCode(10, 10, 2));
         clickAt(20, 40);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         clickAt(20, 250);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         clickAt(170, 250);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         clickAt(200, 250);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         assertTrue(amino > Game.Create().GetCurrentPlayer().GetAminoAcid() || nucleo > Game.Create().GetCurrentPlayer().GetNucleotide());
     }
 
     private void clickAt(int x, int y){
         robot.mouseMove(x, y);
-        robot.delay(200);
+        robot.delay(ROBOT_DELAY);
         robot.mousePress(leftClick);
         robot.mouseRelease(leftClick);
     }
