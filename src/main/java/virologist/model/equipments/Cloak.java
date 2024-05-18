@@ -1,33 +1,23 @@
 package virologist.model.equipments;
 
 
+import org.apache.commons.math3.random.RandomGenerator;
+import org.apache.commons.math3.random.JDKRandomGenerator;
 import virologist.model.Virologist;
 import virologist.model.strategy.NoInjected;
 
 /**
  * Védőfelszerelés, amely stratégiát biztosít viselőjén bizonyos eséllyel, érinthetetlenné teszi, ágensek felől
  */
-public class Cloak extends Equipment
-{
-	private double fixRandom;
-	private boolean fixRandomUsed;
+public class Cloak extends Equipment {
+	private RandomGenerator random;
 
 	public Cloak() {
-		fixRandom = 0.0;
-		fixRandomUsed = false;
+		random = new JDKRandomGenerator();
 	}
 
-	public Cloak(double fixRandom) {
-		this.fixRandom = fixRandom;
-		fixRandomUsed = true;
-	}
-
-	private double getRandom() {
-		if (fixRandomUsed) {
-			return fixRandom;
-		} else {
-			return Math.random();
-		}
+	public Cloak(RandomGenerator secureRandom) {
+		this.random = secureRandom;
 	}
 
 	/**
@@ -36,7 +26,7 @@ public class Cloak extends Equipment
 	 */
 	public void ApplyStrategy(Virologist v)
 	{
-		if (getRandom() < 0.823)
+		if (random.nextDouble() < 0.823)
 			v.SetInjectedStr(new NoInjected());
 	}
 }

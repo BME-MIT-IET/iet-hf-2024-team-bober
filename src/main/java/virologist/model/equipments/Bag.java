@@ -6,8 +6,7 @@ import virologist.model.Virologist;
 /**
  * Olyan felszerelés, amely növeli a maximális nukleotid és aminosav tárhelyet
  */
-public class Bag extends Equipment
-{
+public class Bag extends Equipment {
 	/**
 	 * Növelendő mennyiség
 	 */
@@ -17,7 +16,7 @@ public class Bag extends Equipment
 	 * Zsák felszerelés létrehozása
 	 * Beállítja a növelő mennyiséget
 	 */
-	public Bag(){
+	public Bag() {
 		delta = 5;
 	}
 
@@ -40,5 +39,4 @@ public class Bag extends Equipment
 	public void Disable(Virologist v) {
 		v.DecreaseLimit(delta);
 	}
-
 }

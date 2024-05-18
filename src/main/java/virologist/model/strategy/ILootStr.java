@@ -5,8 +5,7 @@ import virologist.model.Virologist;
 /**
  * A virológus Aminosav, Nukleotid, védőfelszerelés zsákmányolási stratégiját megtesítendő osztályok interface-e.
  */
-public interface ILootStr
-{
+public interface ILootStr {
 	/**
 	 * Aminosav zsákmányolás metódusa.
 	 * @param v A zsákmányoló virológus.

@@ -7,8 +7,7 @@ import virologist.model.codes.GeneticCode;
 /**
  * A default felkenés stratégia, ami engedélyezi a felkenést a kenőnek.
  */
-public class DefInject implements IInjectStr
-{
+public class DefInject implements IInjectStr {
 	/**
 	 * A felkenést végző függvény, ami elvégzi a felkenést a célpontra, valamint csökkenti v leléphető köreinek számát.
 	 * @param v A virológus aki a kenést akarja végezni.

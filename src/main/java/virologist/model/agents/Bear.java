@@ -1,5 +1,6 @@
 package virologist.model.agents;
 
+
 import virologist.model.Virologist;
 import virologist.model.strategy.BearMove;
 
@@ -27,14 +28,16 @@ public class Bear extends Agent {
      * @return az ágens hátralévő hatásideje szöveg típusként, így kiírható a végtelen.
      */
     @Override
-    public String getTimeToLive(){return "infinity";}
+    public String getTimeToLive() {
+        return "infinity";
+    }
 
     /**
      * A vírus beállítja a célzott virológus mozgási stratégiáját a megfelelőre, így fejti majd ki a hatását.
      * @param v a célzott virológus.
      */
     @Override
-    public void ApplyStrategy(Virologist v){
+    public void ApplyStrategy(Virologist v) {
         v.SetMoveStr(new BearMove());
     }
 
@@ -43,6 +46,6 @@ public class Bear extends Agent {
      * @param v a tulajdonos virológus.
      */
     @Override
-    public void Update(Virologist v){ //Sosem évül el
+    public void Update(Virologist v) { //Sosem évül el
     }
 }

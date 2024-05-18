@@ -13,7 +13,8 @@ public class Shelter extends Field
 	 * @param e hozzáadandó felszerelés
 	 */
 	public Shelter(Equipment e) {
-		if (e != null)
+		if (e != null) {
 			equipments.add(e);
+		}
 	}
 }

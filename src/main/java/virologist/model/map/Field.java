@@ -10,8 +10,7 @@ import java.util.ArrayList;
 /**
  * Egy sima mező, amely tárolja az esetleg rajta lévő virológusokat, felszereléseket
  */
-public class Field
-{
+public class Field {
 	/**
 	 * Szomszédos mezők
 	 */
@@ -34,7 +33,7 @@ public class Field
 	 * Beállítja a mező nevét
 	 * @param name név
 	 */
-	public void setName(String name){
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -42,14 +41,14 @@ public class Field
 	 * Megadja a mező nevét
 	 * @return név
 	 */
-	public String getName(){
+	public String getName() {
 		return name;
 	}
 
 	/**
 	 * Létrehozza a tárolókat
 	 */
-	public Field(){
+	public Field() {
 		neighbours = new ArrayList<>();
 		virologists = new ArrayList<>();
 		equipments = new ArrayList<>();
@@ -73,7 +72,7 @@ public class Field
 	 * Megadja a mezőn tartózkodó virológusokat
 	 * @return virológusok
 	 */
-	public ArrayList<Virologist> GetVirologists(){
+	public ArrayList<Virologist> GetVirologists() {
 		return virologists;
 	}
 
@@ -90,7 +89,7 @@ public class Field
 	 * A mezőn az anyagok tönkre tételét szimbolizálja,
 	 * de nem csinál semmit alapból, hiszen csak a Warehouse-on található anyag
 	 */
-	public void DestroyMaterial(){
+	public void DestroyMaterial() {
 	}
 
 	/**

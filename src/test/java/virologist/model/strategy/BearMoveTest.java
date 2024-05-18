@@ -1,13 +1,12 @@
 package virologist.model.strategy;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import virologist.model.Virologist;
 import virologist.model.agents.Bear;
 import virologist.model.map.Field;
-
 import static org.mockito.Mockito.*;
-
 import java.util.ArrayList;
 
 class BearMoveTest {
@@ -53,6 +52,5 @@ class BearMoveTest {
         verify(virologist1, times(1)).TargetedWith(any(Bear.class));
         verify(virologist2, times(1)).TargetedWith(any(Bear.class));
         verify(virologist, times(1)).DecreaseActions();
-    }
-    
+    }   
 }

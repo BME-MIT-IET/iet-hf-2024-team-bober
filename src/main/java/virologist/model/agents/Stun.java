@@ -3,20 +3,18 @@ package virologist.model.agents;
 
 import virologist.model.Virologist;
 import virologist.model.strategy.*;
-import virologist.model.strategy.*;
 
 /**
  * Olyan ágens, ami lebénítja a virológust, megafosztja minden körében a végezhető tevékenységtől,
  * így csak át tudja majd adni a körét a következő játékosnak.
  */
-public class Stun extends Agent
-{
+public class Stun extends Agent {
 
 	/**
 	 * Konstruktor, amely beállítja az ágens hatásának hátralévő idejét.
 	 * @param ttl a beállítandó hatásidő
 	 */
-	public Stun(int ttl){
+	public Stun(int ttl) {
 		super(ttl);
 	}
 
@@ -25,8 +23,7 @@ public class Stun extends Agent
 	 * Azt, hogy semmit se tudjon tenni, őt se lehessen megkenni, de ki tudják fosztani más játékosok.
 	 * @param v a célzott virológus
 	 */
-	public void ApplyStrategy(Virologist v)
-	{
+	public void ApplyStrategy(Virologist v) {
 		Looted lt = new Looted();
 		NoCollect nc = new NoCollect();
 		NoDrop nd = new NoDrop();

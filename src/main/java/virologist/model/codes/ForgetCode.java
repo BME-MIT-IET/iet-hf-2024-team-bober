@@ -11,8 +11,7 @@ import static virologist.model.Game.playerCount;
 /**
  * Olyan genetikai kód, ami egy felejtő (Forget) típusú ágenst tud előállítani.
  */
-public class ForgetCode extends GeneticCode
-{
+public class ForgetCode extends GeneticCode {
 	/**
 	 * Konstruktor, mely beállítja a létrehozhatóü felejtő ágens költségeit és időtartamát.
 	 */
@@ -34,17 +33,16 @@ public class ForgetCode extends GeneticCode
 	 * @return a létrehozott ágens.
 	 * @throws Exception ha nem hozható létre az Agent, mert nincs hozzá elég anyag a paraméterül kapott virológusnak.
 	 */
-	public Agent Create(Virologist v) throws Exception
-	{
-
+	public Agent Create(Virologist v) throws Exception {
 		v.RemoveNucleotide(nucleotidePrice);
-		try{
+
+		try {
 			v.RemoveAminoAcid(aminoAcidPrice);
-		}
-		catch(Exception e){
+		} catch(Exception e){
 			v.AddNucleotide(nucleotidePrice);
 			throw e;
 		}
+
 		return new Forget(turnsLeft*playerCount);
 	}
 
