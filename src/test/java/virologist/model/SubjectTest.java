@@ -59,10 +59,10 @@ class SubjectTest {
         subject = new Subject(observers);
 
         // Act
-        subject.attach(observer1);
+        subject.detach(observer1);
         
         // Assert
-        verify(observers, times(0)).remove(observer1);
+        verify(observers, times(1)).remove(observer1);
     }
 
     @Test
