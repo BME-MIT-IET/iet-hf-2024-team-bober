@@ -58,16 +58,21 @@ public class Window extends Observer{
         mainMenu.add(actions);
         frame.setJMenuBar(mainMenu);
 
-        JMenu attack= new JMenu("attack");
+        JMenu attack = new JMenu("attack");
         actions.add(attack);
         attack.addMenuListener(new ViewMenuListener(()->{
-            attack.removeAll();
+           attack.removeAll();
            Virologist v = game.GetCurrentPlayer();
-            for (Virologist vir : v.getField().GetVirologists() ) {
-                JMenuItem item = new JMenuItem(vir.getName());
-                item.addActionListener((e)->controller.attack(vir));
-                attack.add(item);
+           ArrayList<Virologist> playersOnField = v.getField().GetVirologists();
+
+                for (Virologist vir : playersOnField) {
+                    if(vir != game.GetCurrentPlayer()){
+                    JMenuItem item = new JMenuItem(vir.getName());
+                    item.addActionListener((e)->controller.attack(vir));
+                    attack.add(item);
+                }               
             }
+
         }));
 
         JMenu move= new JMenu("move");

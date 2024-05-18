@@ -35,6 +35,7 @@ public class Axe extends Equipment implements IAttackStr {
         attacker.DecreaseActions();
         target.Kill();
         used = true;
+        attacker.RemoveEquipment(this);
         attacker.Reset();
     }
 }
