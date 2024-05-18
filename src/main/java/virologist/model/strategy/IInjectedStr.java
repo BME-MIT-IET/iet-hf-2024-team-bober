@@ -7,8 +7,7 @@ import virologist.model.agents.Agent;
 /**
  * A virológus azon stratégiáját reprezentálja, mikor felkennek rá valamilyen ágenst.
  */
-public interface IInjectedStr
-{
+public interface IInjectedStr {
 	/**
 	 * A stratégia alakalmazásakor hívott metódus, olyan esetben, ha a felkenő nem egy virológus.
 	 * @param v A virológus, akire felkenték az ágenst.

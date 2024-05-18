@@ -16,7 +16,7 @@ public class Laboratory extends Field
 	 * Genetikai kód hozzáadása a mezőhöz
 	 * @param c hozzáadandó genetikai kód
 	 */
-	public Laboratory(GeneticCode c){
+	public Laboratory(GeneticCode c) {
 		code = c;
 	}
 

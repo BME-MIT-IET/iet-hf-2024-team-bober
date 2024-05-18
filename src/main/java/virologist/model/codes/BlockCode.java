@@ -11,8 +11,7 @@ import static virologist.model.Game.playerCount;
 /**
  * Blokkoló hatású ágenshez tartozó genetikai kód
  */
-public class BlockCode extends GeneticCode
-{
+public class BlockCode extends GeneticCode {
 	/**
 	 * Konstruktor, mely beállítja a kreálható ágens költségeit és
 	 * hatásánakl időtartamát
@@ -37,17 +36,16 @@ public class BlockCode extends GeneticCode
 	 * @return az elkészített ágens
 	 * @throws Exception ha a virológusnak nem volt elég anyaga az ágenskészítéshez
 	 */
-	public Agent Create(Virologist v) throws Exception
-	{
-
+	public Agent Create(Virologist v) throws Exception {
 		v.RemoveNucleotide(nucleotidePrice);
-		try{
+
+		try {
 			v.RemoveAminoAcid(aminoAcidPrice);
-		}
-		catch(Exception e){
+		} catch(Exception e) {
 			v.AddNucleotide(nucleotidePrice);
 			throw e;
 		}
+
 		return new Block(turnsLeft*playerCount);
 	}
 

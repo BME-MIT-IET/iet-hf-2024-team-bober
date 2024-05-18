@@ -6,16 +6,14 @@ import virologist.model.Virologist;
 /**
  * Zsákmányolási stratégia, ami nem engedélyez zsákmányolást.
  */
-public class NoLoot implements ILootStr
-{
+public class NoLoot implements ILootStr {
 	/**
 	 * Nem Engedélyez Aminosav zsákmányolást.
 	 * @param v A zsákmányoló virológus.
 	 * @param target A kizsákmányolandó virológus.
 	 */
 	@Override
-	public void LootAmino(Virologist v, Virologist target)
-	{
+	public void LootAmino(Virologist v, Virologist target) {
 		v.DecreaseActions();
 	}
 
@@ -25,8 +23,7 @@ public class NoLoot implements ILootStr
 	 * @param target A kizsákmányolandó virológus.
 	 */
 	@Override
-	public void LootNucleotide(Virologist v, Virologist target)
-	{
+	public void LootNucleotide(Virologist v, Virologist target)	{
 		v.DecreaseActions();
 	}
 
@@ -36,8 +33,7 @@ public class NoLoot implements ILootStr
 	 * @param target A kizsákmányolandó virológus.
 	 */
 	@Override
-	public void LootEquipment(Virologist v, Virologist target)
-	{
+	public void LootEquipment(Virologist v, Virologist target) {
 		v.DecreaseActions();
 	}
 }

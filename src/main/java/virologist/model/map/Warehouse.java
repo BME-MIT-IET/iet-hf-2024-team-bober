@@ -2,8 +2,8 @@ package virologist.model.map;
 
 
 import virologist.model.Virologist;
-
-import java.util.Random;
+import org.apache.commons.math3.random.RandomGenerator;
+import org.apache.commons.math3.random.JDKRandomGenerator;
 
 /**
  * Olyan mező, amelyen anyag gyüjthető
@@ -14,28 +14,16 @@ public class Warehouse extends Field
 	 * Ennyivel növeli a virológusok anyagát
 	 */
 	private int delta;
-	private int fixRandom;
-	private boolean fixRandomUsed;
+	private RandomGenerator random;
 
 	public Warehouse() {
 		delta = 5;
-		fixRandom = 0;
-		fixRandomUsed = false;
+		this.random = new JDKRandomGenerator();
 	}
 
-	public Warehouse(int delta, int fixRandom) {
+	public Warehouse(int delta, JDKRandomGenerator random) {
 		this.delta = delta;
-		this.fixRandom = fixRandom;
-		fixRandomUsed = true;
-	}
-
-	private int getRandom() {
-		if (fixRandomUsed) {
-			return fixRandom;
-		} else {
-			Random random = new Random();
-			return random.nextInt(2);
-		}
+		this.random = random;
 	}
 
 	/**
@@ -45,8 +33,7 @@ public class Warehouse extends Field
 	 * @param v gyüjtő virológus
 	 */
 	public void CollectMaterial(Virologist v) {
-		int r = getRandom();
-		if (r == 0) {
+		if (random.nextInt(2) == 0) {
 			v.AddAminoAcid(delta);
 		}
 		else {
@@ -58,7 +45,7 @@ public class Warehouse extends Field
 	 * A mezőn az anyagok tönkretételét szimbolizálja, nem vehető fel anyag ezután a mezőről
 	 */
 	@Override
-	public void DestroyMaterial(){
+	public void DestroyMaterial() {
 		delta = 0;
 	}
 }

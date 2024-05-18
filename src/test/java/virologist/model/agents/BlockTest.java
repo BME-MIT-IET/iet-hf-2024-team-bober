@@ -1,11 +1,10 @@
 package virologist.model.agents;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import virologist.model.Virologist;
 import virologist.model.strategy.NoInjected;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 

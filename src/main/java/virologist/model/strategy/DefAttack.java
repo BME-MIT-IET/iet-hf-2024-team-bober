@@ -7,7 +7,7 @@ import virologist.model.Virologist;
  * Nem végez támadást, mert a játékmechanikában ez az alapértelmezett viselkedés. (támadáshoz kell egy fegyver)
  * Részletesebb leírásért lásd: dokumentáció)
  */
-public class DefAttack implements IAttackStr{
+public class DefAttack implements IAttackStr {
     /**
      * Csak akciópontot von le a támadótól, de nem végez tényleges támadást.
      * @param attacker A támadó virológus.

@@ -11,13 +11,12 @@ import static virologist.model.Game.playerCount;
 /**
  * Olyan genetikai kód, ami egy vitustánc (Chorea) típusú ágenst tud előállítani.
  */
-public class ChoreaCode extends GeneticCode
-{
+public class ChoreaCode extends GeneticCode {
 	/**
 	 * Konstruktor, ami beállítja a kódhoz a megfelelő költségeket és
 	 * a jövendőbeli ágens élettartamát a vitustánc ágens legyártásához.
 	 */
-	public ChoreaCode(){
+	public ChoreaCode() {
 		aminoAcidPrice = 5;
 		nucleotidePrice = 6;
 		turnsLeft = 1;
@@ -35,17 +34,16 @@ public class ChoreaCode extends GeneticCode
 	 * @return a létrehozot vitustánc ágens
 	 * @throws Exception ha nem hozható létre az Agent, mert nincs hozzá elég anyaga a paraméterül kapott virológusnak.
 	 */
-	public Agent Create(Virologist v) throws Exception
-	{
-
+	public Agent Create(Virologist v) throws Exception {
 		v.RemoveNucleotide(nucleotidePrice);
-		try{
+
+		try {
 			v.RemoveAminoAcid(aminoAcidPrice);
-		}
-		catch(Exception e){
+		} catch(Exception e) {
 			v.AddNucleotide(nucleotidePrice);
 			throw e;
 		}
+
 		return new Chorea(turnsLeft*playerCount);
 	}
 

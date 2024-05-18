@@ -1,12 +1,11 @@
 package virologist.model.agents;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import virologist.model.Virologist;
 import virologist.model.strategy.BearMove;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 

@@ -1,12 +1,12 @@
 package virologist.model.map;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import virologist.model.Virologist;
 import virologist.model.equipments.Equipment;
 import static org.mockito.Mockito.*;
-
 import java.util.ArrayList;
 
 class FieldTest {
@@ -19,6 +19,7 @@ class FieldTest {
     @Mock
     private ArrayList<Equipment> equipments;
 
+    @SuppressWarnings("unchecked")
     @BeforeEach
     public void init() {
         neighbours = mock(ArrayList.class);

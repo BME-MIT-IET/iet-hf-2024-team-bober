@@ -7,8 +7,7 @@ import virologist.model.map.Field;
 /**
  * A virológus védőfelszerelés felvételéért felelős stratégia.
  */
-public interface IEquipStr
-{
+public interface IEquipStr {
 	/**
 	 * A stratégia alkalmazásakor hívandó metódus.
 	 * @param v A felvételt végző virológus.
