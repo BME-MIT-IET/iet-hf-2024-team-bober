@@ -4,13 +4,9 @@ import virologist.control.*;
 import virologist.model.Game;
 import virologist.model.Virologist;
 import virologist.model.codes.BlockCode;
-import virologist.model.equipments.Axe;
-import virologist.model.equipments.Equipment;
 import virologist.model.map.*;
 
 import org.junit.jupiter.api.*;
-import org.mockito.internal.matchers.Or;
-import org.mockito.internal.util.reflection.GenericMaster;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -18,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.Robot;
 import java.awt.event.InputEvent;
-import javax.swing.*;
 
 @TestMethodOrder (MethodOrderer.OrderAnnotation.class)
 public class WindowTest {
@@ -99,6 +94,12 @@ public class WindowTest {
     @Test @Order (5)
     public void attackTest(){
         int numPlayers = Game.Create().getVirologists().size();
+        Game.Create().GetCurrentPlayer().SetActionCount(3);
+        clickAt(20, 40);
+        robot.delay(ROBOT_DELAY);
+        clickAt(20, 90);
+        robot.delay(ROBOT_DELAY);
+        clickAt(180, 90);
         robot.delay(ROBOT_DELAY);
         clickAt(20, 40);
         robot.delay(ROBOT_DELAY);
@@ -127,6 +128,7 @@ public class WindowTest {
         clickAt(20, 120);
         robot.delay(ROBOT_DELAY);
         clickAt(170, 120);
+        robot.delay(ROBOT_DELAY);
         assertTrue(Game.Create().GetCurrentPlayer().GetAminoAcid() > amino);
     }
 
