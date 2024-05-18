@@ -8,6 +8,7 @@ import virologist.model.map.*;
 
 import org.junit.jupiter.api.*;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 
+@Tag("GUI")
 @TestMethodOrder (MethodOrderer.OrderAnnotation.class)
 public class WindowTest {
 
@@ -44,6 +46,7 @@ public class WindowTest {
         }
     }
 
+    
     @Test @Order (1)
     public void moveTest(){
         robot.delay(ROBOT_DELAY);

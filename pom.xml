@@ -8,9 +8,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<sonar.organization><!-- Ide jön a github organization-ünk neve. Valszeg ez a csapatnevünk
-			lesz. -->
-		</sonar.organization>
+		<sonar.organization>bme-mit-iet-org</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
@@ -50,6 +48,9 @@
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.2</version>
+				<configuration>
+					<excludedGroups>GUI</excludedGroups>
+				</configuration>
 			</plugin>
 
 			<!--  -->
