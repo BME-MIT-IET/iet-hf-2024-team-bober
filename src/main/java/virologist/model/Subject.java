@@ -2,6 +2,7 @@ package virologist.model;
 
 import virologist.view.Observer;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Egy megfigyelt osztály, melynek változásaira fel lehet iratkozniuk Observereknek
@@ -10,7 +11,15 @@ public class Subject {
     /**
      * Observerek - megfigyelők listája
      */
-    ArrayList<Observer> observers = new ArrayList<>();
+    List<Observer> observers;
+
+    public Subject() {
+        observers = new ArrayList<>();
+    }
+
+    public Subject(List<Observer> observers) {
+        this.observers = observers;
+    }
 
     /**
      * Egy megfigyelő regisztrálása
