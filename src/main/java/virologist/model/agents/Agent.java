@@ -19,6 +19,11 @@ public abstract class Agent {
 		return this.getClass().getSimpleName().equals(o.getClass().getSimpleName());
 	}
 
+	@Override
+	public int hashCode() {
+		return getClass().getSimpleName().hashCode();
+	}
+
 	/**
 	 * @return az ágens típusa.
 	 */
