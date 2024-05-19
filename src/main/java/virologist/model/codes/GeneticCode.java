@@ -21,6 +21,11 @@ public abstract class GeneticCode {
 		return this.getClass().getSimpleName().equals(o.getClass().getSimpleName());
 	}
 
+	@Override
+	public int hashCode() {
+		return getClass().getSimpleName().hashCode();
+	}
+
 	/**
 	 * @return a genetikai kód típusa.
 	 */
