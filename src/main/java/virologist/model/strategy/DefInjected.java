@@ -22,7 +22,7 @@ public class DefInjected implements IInjectedStr {
 	}
 
 	/**
-	 * //TODO
+	 * 
 	 * @param by
 	 * @param injected
 	 * @param a
