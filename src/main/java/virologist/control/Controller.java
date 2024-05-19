@@ -7,7 +7,7 @@ import virologist.model.codes.GeneticCode;
 import virologist.model.map.*;
 import virologist.model.Subject;
 import virologist.model.map.Field;
-import virologist.view.Window;
+import virologist.view.window.Window;
 /**
  * Prototípus külvilággal való kommunikációjáért felelős osztály.
  * Megvalósítja a dokumentációban leírt bemeneti nyelv funkcióit, valamint közvetít a modell és a felhasználó(k) között.
