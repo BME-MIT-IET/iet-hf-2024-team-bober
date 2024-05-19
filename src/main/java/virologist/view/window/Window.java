@@ -1,4 +1,4 @@
-package virologist.view;
+package virologist.view.window;
 
 import virologist.control.Controller;
 import virologist.model.Game;
@@ -6,6 +6,9 @@ import virologist.model.Virologist;
 import virologist.model.codes.GeneticCode;
 import virologist.model.equipments.Equipment;
 import virologist.model.map.Field;
+import virologist.view.Drawable;
+import virologist.view.Observer;
+import virologist.view.ViewMenuListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
