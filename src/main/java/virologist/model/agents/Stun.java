@@ -23,6 +23,7 @@ public class Stun extends Agent {
 	 * Azt, hogy semmit se tudjon tenni, őt se lehessen megkenni, de ki tudják fosztani más játékosok.
 	 * @param v a célzott virológus
 	 */
+	@Override
 	public void ApplyStrategy(Virologist v) {
 		Looted lt = new Looted();
 		NoCollect nc = new NoCollect();

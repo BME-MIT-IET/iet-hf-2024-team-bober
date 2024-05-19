@@ -7,9 +7,7 @@ import virologist.model.map.Field;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
-/**
- * TODO comment
- */
+
 public class BearMove implements IMoveStr {
     Field randomNeighbour;
 
