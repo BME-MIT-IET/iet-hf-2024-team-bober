@@ -1,0 +1,9 @@
+# Unit tesztek
+
+A unit teszteket az előadásokon és a gyakorlaton megtanult módszerek alapján állítottam össze. A tesztek során a metódusok az elvártnak megfelelően működtek, bár a kialakítás és a felelősségek köre nem volt jól kitalálva, ennek ellenére a végeredmény szempontjából az egységek megfelelően működtek.
+
+Egy példa a fentebb említett felelősségek rossz kialakítására: a virologist.model.strategy package NoDrop osztálya megvalósítja az IDropStr interface-t, ez egy eldobási stratégia. Logikailag az volna várható, hogy a paraméterként kapott virológus dobja el a paraméterül kapott felszerelést a paraméterül kapott mezőre, és a virológus cselekvéseinek száma csökkenjen 1-el. Az utóbbi megtörténik, az eldobás helyett viszont az equipmentet hozzáadta a virológushoz. Ennek mint kiderült az az oka, hogy a játékot úgy tervezték meg, hogy a virológus az eldobáskor először vizsgálat nélkül dobja ez az adott dolgot, majd meghívja az eldobási stratégiát, ami ha egy "ne dobd el" stratégia, akkor az adott dolgot visszateszi.
+
+A másik érdekes dolog a listák tesztelése volt, erre volt két különböző példa is, egy egyikben mocklistákkal dolgoztam, ez az esetek többségében elégséges volt, de az iterációk vizsgálatához (foreach) valódi listákat alkalmaztam, amiben mock objektumok voltak, így sikerült megvizsgálni, hogy minden tartalmazott objektumon meghívódtak-e a megfelelő metódusok.
+
+Az utolsó probléma a metódusokon belül alkalmazott random hívások kezelése volt. Mivel a java random final osztályok nem mockolhatóak, ezért végül org.apache.commons.math3.random.JDKRandomGenerator csomagok használtam, mert ez a random nem final és mockolható. A szükséges függőségeket injektáltam, ezekhez külön konstruktort hoztam létre az eredeti osztályokban úgy, hogy az osztály interfészei ne változzanak.
