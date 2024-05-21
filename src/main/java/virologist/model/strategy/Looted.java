@@ -9,11 +9,17 @@ import virologist.model.equipments.Equipment;
  */
 public class Looted implements ILootedStr
 {
+	private int delta;
 
 	/**
 	 * Sikeres kifosztásért felelős stratégia létrehozása
 	 */
-	public Looted(){
+	public Looted() {
+		delta = 1;
+	}
+
+	public Looted(int delta) {
+		this.delta = delta;
 	}
 
 	/**
@@ -39,8 +45,8 @@ public class Looted implements ILootedStr
 	public void LootedForAminoAcid(Virologist v, Virologist from)
 	{
 		try {
-			from.RemoveAminoAcid(1);
-			v.AddAminoAcid(1);
+			from.RemoveAminoAcid(delta);
+			v.AddAminoAcid(delta);
 		} catch (Exception e) {
 			//Nem volt mit elvenni
 		}
@@ -55,8 +61,8 @@ public class Looted implements ILootedStr
 	public void LootedForNukleotide(Virologist v, Virologist from)
 	{
 		try{
-			from.RemoveNucleotide(1);
-			v.AddNucleotide(1);
+			from.RemoveNucleotide(delta);
+			v.AddNucleotide(delta);
 		}catch (Exception e){
 			//Nem volt mit elvenni
 		}

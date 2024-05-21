@@ -5,23 +5,33 @@ import virologist.model.agents.Bear;
 import virologist.model.map.Field;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * TODO comment
  */
-public class BearMove implements IMoveStr{
+public class BearMove implements IMoveStr {
+    Field randomNeighbour;
+
+	public BearMove() {
+	}
+
+    public BearMove(Field randomNeighbour) {
+        this.randomNeighbour = randomNeighbour;
+	}
+
     @Override
     public void Move(Virologist v, Field from, Field to) {
 
         ArrayList<Field> neighbours = from.GetNeighbours();
         from.RemoveVirologist(v);
-        Field randomNeighbour;
 
         randomNeighbour = neighbours.get(ThreadLocalRandom.current().nextInt(0, neighbours.size()));
 
         randomNeighbour.AddVirologist(v);
         randomNeighbour.DestroyMaterial();
+        
         for (Virologist vir : randomNeighbour.GetVirologists()) {
             vir.TargetedWith(new Bear());
         }
