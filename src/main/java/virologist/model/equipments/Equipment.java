@@ -6,13 +6,12 @@ import virologist.model.Virologist;
 /**
  * Védőfelszerelés, amely hatással van a viselőjére vagy/és stratégiát biztosít számára
  */
-public abstract class Equipment
-{
+public abstract class Equipment {
 	/**
 	 * Megadja a felszerelés nevét
 	 * @return felszerelés neve
 	 */
-	public String getName(){
+	public String getName() {
 		return this.getClass().getSimpleName();
 	}
 

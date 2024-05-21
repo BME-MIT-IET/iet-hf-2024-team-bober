@@ -17,7 +17,7 @@ public class NoDrop implements IDropStr {
 	 */
 	@Override
 	public void Drop(Virologist v, Field f, Equipment e) {
-		v.AddEquipment(e);	// Na ez szerintem folosleges ide, ki kellene szedni, es ugy tesztelni a jatekot. David
+		v.AddEquipment(e);
 		v.DecreaseActions();
 	}
 

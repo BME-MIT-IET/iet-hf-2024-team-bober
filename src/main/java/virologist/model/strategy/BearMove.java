@@ -5,12 +5,9 @@ import virologist.model.agents.Bear;
 import virologist.model.map.Field;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-/**
- * TODO comment
- */
+
 public class BearMove implements IMoveStr {
     Field randomNeighbour;
 
@@ -35,6 +32,7 @@ public class BearMove implements IMoveStr {
         for (Virologist vir : randomNeighbour.GetVirologists()) {
             vir.TargetedWith(new Bear());
         }
+        
         v.DecreaseActions();
     }
 }

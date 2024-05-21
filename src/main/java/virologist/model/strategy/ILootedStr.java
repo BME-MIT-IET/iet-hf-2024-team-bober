@@ -7,8 +7,7 @@ import virologist.model.equipments.Equipment;
 /**
  * A virológusra irányuló kifosztásért felelős stratégia
  */
-public interface ILootedStr
-{
+public interface ILootedStr {
 	/**
 	 * Felszerelésre irányuló kifosztás
 	 * @param v kifosztó virológus

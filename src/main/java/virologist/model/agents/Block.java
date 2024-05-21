@@ -7,14 +7,13 @@ import virologist.model.strategy.NoInjected;
 /**
  * Olyan ágens, ami hatástalanítja az összes aktuálisan aktív ágenst a felkent virológuson
  */
-public class Block extends Agent
-{
+public class Block extends Agent {
 
 	/**
 	 * Konstruktor, amely beállítja az ágens hatásának hátralévő idejét.
 	 * @param tL a beállítandó hatásidő
 	 */
-	public Block(int tL){
+	public Block(int tL) {
 		super(tL);
 	}
 
@@ -22,8 +21,8 @@ public class Block extends Agent
 	 * Törli az összes jelenleg hatással bíró ágenst és hatásait a virológusból.
 	 * @param v a célzott virológus
 	 */
-	public void Apply(Virologist v)
-	{
+	@Override
+	public void Apply(Virologist v)	{
 		v.RemoveAgents();
 	}
 
@@ -31,8 +30,8 @@ public class Block extends Agent
 	 * Beállítja a virológuson, hogy blokkolja majd az eljövendő felkenéseket
 	 * @param v a célzott virológus
 	 */
-	public void ApplyStrategy(Virologist v)
-	{
+	@Override
+	public void ApplyStrategy(Virologist v)	{
 		NoInjected ni = new NoInjected();
 		v.SetInjectedStr(ni);
 	}

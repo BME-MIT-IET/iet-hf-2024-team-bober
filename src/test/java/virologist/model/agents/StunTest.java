@@ -1,8 +1,8 @@
 package virologist.model.agents;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import virologist.model.Virologist;
 import virologist.model.strategy.Looted;
 import virologist.model.strategy.NoCollect;
@@ -13,7 +13,6 @@ import virologist.model.strategy.NoInjected;
 import virologist.model.strategy.NoLearn;
 import virologist.model.strategy.NoLoot;
 import virologist.model.strategy.NoMove;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 

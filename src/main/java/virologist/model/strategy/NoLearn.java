@@ -7,7 +7,6 @@ import virologist.model.map.Field;
  * Genetikai kód sikertelen megtanulásáért felelős stratégia.
  */
 public class NoLearn implements ILearnStr {
-
 	/**
 	 * Genetikai kód sikertelen megtanulását implementáló függvény.
 	 * @param v Tanuló virológus
@@ -17,5 +16,4 @@ public class NoLearn implements ILearnStr {
 	public void Learn(Virologist v, Field f) {
 		v.DecreaseActions();
 	}
-
 }

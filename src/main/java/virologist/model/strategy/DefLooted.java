@@ -7,8 +7,7 @@ import virologist.model.equipments.Equipment;
 /**
  * Alapértelmezett virológusra irányuló kifosztásért felelős stratégia, blokkolja a kifosztást
  */
-public class DefLooted implements ILootedStr
-{
+public class DefLooted implements ILootedStr {
 	/**
 	 * Felszerelésre irányuló kifosztás
 	 * @param v kifosztó virológus

@@ -7,8 +7,7 @@ import virologist.model.codes.GeneticCode;
 /**
  * Azt a stratégiát reprezentálja, mikor a Virológus rá akar kenni egy paraméterül kapott genetikai kód által reprezentált ágenst a másikra.
  */
-public interface IInjectStr
-{
+public interface IInjectStr {
 	/**
 	 * A stratégia alkalmazásához hívandó metódus
 	 * @param v A virológus aki a kenést akarja végezni.

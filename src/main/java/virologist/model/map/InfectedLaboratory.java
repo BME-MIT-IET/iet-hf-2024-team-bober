@@ -7,7 +7,7 @@ import virologist.model.codes.GeneticCode;
 /**
  * Olyan laboratórium, amelyen a virológus megfertőződik medve vírussal
  */
-public class InfectedLaboratory extends Laboratory{
+public class InfectedLaboratory extends Laboratory {
     /**
      * Genetikai kód hozzáadása a mezőhöz
      *
@@ -22,7 +22,7 @@ public class InfectedLaboratory extends Laboratory{
      * @param v elehelyezendő virológus
      */
     @Override
-    public void AddVirologist(Virologist v){
+    public void AddVirologist(Virologist v) {
         v.TargetedWith(new Bear());
         super.AddVirologist(v);
     }

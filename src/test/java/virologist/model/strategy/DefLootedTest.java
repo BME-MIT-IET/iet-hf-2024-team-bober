@@ -1,10 +1,10 @@
 package virologist.model.strategy;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import virologist.model.Virologist;
 import virologist.model.equipments.Equipment;
-
 import static org.mockito.Mockito.*;
 
 class DefLootedTest {

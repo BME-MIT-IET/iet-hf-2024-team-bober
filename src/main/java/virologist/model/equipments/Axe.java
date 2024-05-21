@@ -20,7 +20,7 @@ public class Axe extends Equipment implements IAttackStr {
      */
     @Override
     public void ApplyStrategy(Virologist v) {
-        if (!used){
+        if (!used) {
             v.SetAttackStr(this);
         }
     }

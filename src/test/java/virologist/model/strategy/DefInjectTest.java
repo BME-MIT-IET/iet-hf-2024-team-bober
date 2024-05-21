@@ -1,5 +1,6 @@
 package virologist.model.strategy;
 
+
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.doThrow;
@@ -7,10 +8,8 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import virologist.model.Virologist;
 import virologist.model.agents.Agent;
 import virologist.model.codes.GeneticCode;

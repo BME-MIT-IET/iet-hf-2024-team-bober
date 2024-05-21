@@ -5,6 +5,7 @@ import virologist.model.Game;
 import virologist.model.Virologist;
 import virologist.model.codes.BlockCode;
 import virologist.model.map.*;
+import virologist.view.window.Window;
 
 import org.junit.jupiter.api.*;
 

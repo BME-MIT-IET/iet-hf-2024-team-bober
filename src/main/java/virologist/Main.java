@@ -2,8 +2,7 @@ package virologist;
 
 import virologist.control.Controller;
 import virologist.control.Loader;
-//TODO comment
-//TODO 2 virologist.Main osztaly is van, sztem lehetne a controlban, de itt is jo akar
+
 public class Main {
 
     /**

@@ -1,10 +1,10 @@
 package virologist.model.strategy;
 
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import virologist.model.Virologist;
 import virologist.model.equipments.Equipment;
-
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
@@ -16,7 +16,7 @@ class LootedTest {
     private Equipment equipment;
     private int delta;
 
-     @BeforeEach
+    @BeforeEach
     public void init() {
         delta = 1;
         looted = new Looted(delta);

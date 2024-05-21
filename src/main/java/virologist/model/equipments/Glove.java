@@ -10,8 +10,7 @@ import virologist.model.strategy.IInjectedStr;
  * azaz a kapott ágensnek nem lesznek hatással a viselőn és megpróbálja megkenni a támadó virológust a kapott ágenssel
  * Háromszori alkalmazás után elkopik, nem használható többé és levetődik a viselőjéről
  */
-public class Glove extends Equipment implements IInjectedStr
-{
+public class Glove extends Equipment implements IInjectedStr {
 	/**
 	 * Használtsági szint
 	 */
@@ -63,10 +62,10 @@ public class Glove extends Equipment implements IInjectedStr
 	 */
 	@Override
 	public void Injected(Virologist by, Virologist injected, Agent a) {
-		if (useCount > 0){
+		if (useCount > 0) {
 			useCount--;
 			by.TargetedWith(injected, a);
-		} else{
+		} else {
 			injected.RemoveEquipment(this);
 			injected.Reset();
 			injected.TargetedWith(by, a);

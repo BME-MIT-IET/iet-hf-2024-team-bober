@@ -10,22 +10,26 @@ import virologist.model.agents.Agent;
  * hiszen ezek segítségével kell létrehozni őket,
  * ezen kívül tartalmazza az elkészítéshez tartozó aminosav, nukleotid tarifákat.
  */
-public abstract class GeneticCode
-{
+public abstract class GeneticCode {
 	/**
 	 * Object equals függvényének felülírása 2 genetikai kód összehasonlítására.
 	 * @param o az összehasonlítandó objektum.
 	 * @return megegyezik-e a két objektum.
 	 */
 	@Override
-	public boolean equals(Object o){
+	public boolean equals(Object o) {
 		return this.getClass().getSimpleName().equals(o.getClass().getSimpleName());
+	}
+
+	@Override
+	public int hashCode() {
+		return getClass().getSimpleName().hashCode();
 	}
 
 	/**
 	 * @return a genetikai kód típusa.
 	 */
-	public String getName(){
+	public String getName() {
 		return this.getClass().getSimpleName();
 	}
 

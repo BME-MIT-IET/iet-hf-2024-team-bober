@@ -8,34 +8,40 @@ import virologist.model.Virologist;
  * Élettartamát periodikusan frissíteni kell, ilyenkor mindig eggyel csökken.
  * Ha egyszer lejárt már többé nem lesz hatása.
  */
-public abstract class Agent
-{
+public abstract class Agent {
 	/**
 	 * Az Object equals függvényének felülírása, összehasonlítja ezt az objektumot a paraméterül kapottal (mely jellemzően egy ágens).
 	 * @param o az összehasonlítandó objektum.
 	 * @return megegyezik-e a 2 objektum típusa.
 	 */
 	@Override
-	public boolean equals(Object o){
+	public boolean equals(Object o) {
 		return this.getClass().getSimpleName().equals(o.getClass().getSimpleName());
+	}
+
+	@Override
+	public int hashCode() {
+		return getClass().getSimpleName().hashCode();
 	}
 
 	/**
 	 * @return az ágens típusa.
 	 */
-	public String getName(){
+	public String getName() {
 		return this.getClass().getSimpleName();
 	}
 
 	/**
 	 * @return az ágens hátralévő hatásideje szöveg típusként.
 	 */
-	public String getTimeToLive(){return String.valueOf(timeToLive);}
+	public String getTimeToLive() {
+		return String.valueOf(timeToLive);
+	}
 
 	/**
  	 * @return az ágens hátralévő hatásideje.
 	 */
-	public int getTtl(){
+	public int getTtl() {
 		return timeToLive;
 	}
 
@@ -43,7 +49,7 @@ public abstract class Agent
 	 * Beállítja az ágens hatásidejét.
 	 * @param ttl a beállítandó élettartam.
 	 */
-	public void setTtl(int ttl){
+	public void setTtl(int ttl) {
 		timeToLive = ttl;
 	}
 
@@ -52,7 +58,7 @@ public abstract class Agent
 	 */
 	protected int timeToLive;
 
-	public Agent(int ttl){
+	public Agent(int ttl) {
 		timeToLive = ttl;
 	}
 
@@ -61,10 +67,9 @@ public abstract class Agent
 	 * Ha lejárt eltávolítja magát a virológusról, és reseteli azt.
 	 * @param v a tulajdonos virológus.
 	 */
-	public void Update(Virologist v)
-	{
+	public void Update(Virologist v) {
 		timeToLive--;
-		if (timeToLive == 0){
+		if (timeToLive == 0) {
 			v.RemoveAgent(this);
 			v.Reset();
 		}
@@ -75,8 +80,7 @@ public abstract class Agent
 	 * és esetlegesen ennek vannak direkt/azonnali hatásai rá.
 	 * @param v a célzott virológus.
 	 */
-	public void Apply(Virologist v)
-	{
+	public void Apply(Virologist v) {
 	}
 
 	/**
@@ -85,7 +89,6 @@ public abstract class Agent
 	 * alapértelmezetten üres, amikor nincs az ágensnek hosszútávú hatása, csak azonnali.
 	 * @param v a célzott virológus.
 	 */
-	public void ApplyStrategy(Virologist v)
-	{
+	public void ApplyStrategy(Virologist v) {
 	}
 }
