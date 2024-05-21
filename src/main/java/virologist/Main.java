@@ -10,7 +10,7 @@ public class Main {
      * @param args parancsori argumentumok.
      */
     public static void main(String[] args){
-        String mapPath = "maps/map3.txt";
+        String mapPath = "maps/map1.txt";
         if (args.length > 0)
             mapPath = args[0];
         try {
