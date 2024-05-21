@@ -14,8 +14,11 @@ import virologist.view.DrawableShelter;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.IllegalFormatException;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
+
+import org.apache.commons.math3.exception.NullArgumentException;
 
 /**
  * Architekturálisan a controller része. A pálya fileból betöltéséért felelős osztály.
@@ -41,6 +44,16 @@ public class Loader {
      * A bemeneti parancsokat, és a megvalósító metódusok kapcsolatát tároló objektum.
      */
     private static final LinkedHashMap<String, Method> inputs = new LinkedHashMap<>();
+
+    /*
+     * Virologist.model.codes string alapú hivatkozása
+     */
+    private static String virologistModelCodes = "virologist.model.codes.";
+
+     /*
+     * Virologist.view.Drawable string alapú hivatkozása
+     */
+    private static String virologistViewDrawable = "virologist.view.Drawable";
 
     /**
      * Az osztály inicializáláskor kigyűjti a bemeneti nyelv parancsaihoz tartozó metódusokat,
@@ -114,7 +127,7 @@ public class Loader {
     @LoaderInput(name="Field")
     private void Field() throws Exception {
         try{
-            if (game == null) throw new Exception();
+            if (game == null) throw new IllegalArgumentException();
 
             HashMap<String, String> options = new HashMap<>();
             String line;
@@ -127,20 +140,20 @@ public class Loader {
             String arg = options.get("Param");
 
             if (arg == null){ //default ctor
-                f = (Field) createObject("virologist.view.Drawable" + options.get("Type"));
+                f = (Field) createObject(virologistViewDrawable + options.get("Type"));
             } else{
                 //csúnya, de ez van
                 switch(options.get("Type")){
                     case "Laboratory":
-                        GeneticCode c1 = (GeneticCode) createObject("virologist.model.codes." + arg);
+                        GeneticCode c1 = (GeneticCode) createObject(virologistModelCodes + arg);
                         f = new DrawableLaboratory(game.AddGeneticCode(c1));
                         break;
                     case "InfectedLaboratory":
-                        GeneticCode c2 = (GeneticCode) createObject("virologist.model.codes." + arg);
+                        GeneticCode c2 = (GeneticCode) createObject(virologistModelCodes + arg);
                         f = new DrawableInfectedLaboratory(game.AddGeneticCode(c2));
                         break;
                     case "Shelter":
-                        Equipment e = (Equipment) createObject("virologist.view.Drawable"+arg);
+                        Equipment e = (Equipment) createObject(virologistViewDrawable+arg);
                         f = new DrawableShelter(e);
                         break;
                     default:
@@ -149,10 +162,10 @@ public class Loader {
             }
             String eqType = options.get("Equipment");
             if (eqType != null){
-                f.Drop((Equipment) createObject("virologist.view.Drawable" + eqType));
+                f.Drop((Equipment) createObject(virologistViewDrawable + eqType));
             }
-            if (options.get("Name") == null) throw new Exception(); //Name is mandatory!
-            if (fields.get(options.get("Name")) != null) throw new Exception(); //Field with Name already Exists!
+            if (options.get("Name") == null) throw new NullArgumentException(); //Name is mandatory!
+            if (fields.get(options.get("Name")) != null) throw new NullArgumentException(); //Field with Name already Exists!
             f.setName(options.get("Name"));
             fields.put(options.get("Name"), f);
             game.AddField(f);
@@ -169,7 +182,7 @@ public class Loader {
     @LoaderInput(name="Neighbours")
     private void Neighbours() throws Exception {
         try{
-            if (game == null) throw new Exception();
+            if (game == null) throw new NullArgumentException();
             String line;
             while (!(line = sc.nextLine()).equals("end")){
                 String[] command = line.split(" ");
@@ -191,7 +204,7 @@ public class Loader {
     @LoaderInput(name="Virologist")
     private void Virologist() throws Exception {
         try{
-            if (game == null) throw new Exception();
+            if (game == null) throw new NullArgumentException();
             String line;
             Virologist v = new Virologist();
             String startingPos = "";
@@ -202,7 +215,7 @@ public class Loader {
                         v.setName(command[1]);
                         break;
                     case "Equipment":
-                        v.AddEquipment((Equipment) createObject("virologist.view.Drawable" + command[1]));
+                        v.AddEquipment((Equipment) createObject(virologistViewDrawable + command[1]));
                         break;
                     case "Amino":
                         v.AddAminoAcid(Integer.parseInt(command[1]));
@@ -221,7 +234,7 @@ public class Loader {
                         startingPos = command[1]; //in case there are command after this that throw error we don't want to mess up the existing setup
                         break;
                     case "GeneticCode":
-                        v.AddGeneticCode((GeneticCode) createObject("virologist.model.codes." + command[1]));
+                        v.AddGeneticCode((GeneticCode) createObject(virologistModelCodes + command[1]));
                         break;
                     case "ActionCount":
                         v.SetActionCount(Integer.parseInt(command[1]));
