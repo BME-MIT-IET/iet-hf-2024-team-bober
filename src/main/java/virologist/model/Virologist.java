@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
+import javax.management.InvalidAttributeValueException;
+
 /**
  *  A virologusert felelo osztaly. Ezeket az objektumokat
  *  fogjak tudni iranyitani a jatekosok a jatek soran es
@@ -258,8 +260,8 @@ public class Virologist extends Subject
 	{
 		if (actionCount > 0) {
 			ArrayList<Field> fields = field.GetNeighbours();
-
-			if (fields.size() != 0) {
+				
+			if (!fields.isEmpty()) {
 				Random random = new Random();
 				Move(fields.get(random.nextInt(fields.size())));
 			}
@@ -423,7 +425,7 @@ public class Virologist extends Subject
 	 */
 	public Equipment GetEquipment() throws IndexOutOfBoundsException
 	{
-		if (equipments.size() == 0)
+		if (equipments.isEmpty())
 			throw new IndexOutOfBoundsException("ures a felszereles tarolo");
 
 		return equipments.remove(equipments.size()-1);
@@ -495,7 +497,7 @@ public class Virologist extends Subject
 	 */
 	public void StealEquipment(Virologist self)
 	{
-		if (equipments.size() > 0) {
+		if (!equipments.isEmpty()) {
 			if(game.randOn) {
 				Random random = new Random();
 				int r = random.nextInt(equipments.size());
@@ -578,10 +580,10 @@ public class Virologist extends Subject
 	 * @param delta a mennyiseg amivel csokkentunk
 	 * @throws Exception ha nincs megfelelo mennyiseg akkor kivetelt dobunk
 	 */
-	public void RemoveNucleotide(int delta) throws Exception
+	public void RemoveNucleotide(int delta) throws InvalidAttributeValueException
 	{
 		if(delta > nucleotide){
-			throw new Exception("I don't have such many nucleotide!");
+			throw new InvalidAttributeValueException("I don't have such many nucleotide!");
 		}
 		nucleotide -= delta;
 	}
@@ -591,10 +593,10 @@ public class Virologist extends Subject
 	 * @param delta a mennyiseg amivel csokkentunk
 	 * @throws Exception ha nincs megfelelo mennyiseg akkor kivetelt dobunk
 	 */
-	public void RemoveAminoAcid(int delta) throws Exception
+	public void RemoveAminoAcid(int delta) throws InvalidAttributeValueException
 	{
 		if(delta > aminoAcid){
-			throw new Exception("I don't have such many amino acid!");
+			throw new InvalidAttributeValueException("I don't have such many amino acid!");
 		}
 		aminoAcid -= delta;
 	}
