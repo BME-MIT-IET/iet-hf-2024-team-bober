@@ -1,0 +1,3 @@
+Nem müködött megfelelően a lootolás más playerektől.
+Sem az aminosav, sem az item és sem a nukleotidsav lootolás.
+Leimplementáltam a stratégiát, hogy ezek helyesen működjenek, mert a strategy amit a virológus létrehozott nem implementált függvényket tartalmazott. Mire ezt megcsináltam, rájöttem, hogy van kész implementált osztály is és végül ezt a stratégiát hozza létre a virológus. Ezáltal a probléma teljesen megjavult
